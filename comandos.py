@@ -2,10 +2,6 @@ from discord import Webhook, RequestsWebhookAdapter, Embed
 import requests
 from discord.ext import task
 from datetime import datetime
-WEBHOOK_LOGGLOBAL = "https://discord.com/api/webhooks/1214666816899645440/2w6_PHz_j982iKkCwaV1jIdFOKFUXkg78ksUQYIc9t-PGMNRrr_9HAW1Gz3bZt7D-XkO"
-WEBHOOK_LOGSMTPLIVE = "https://discord.com/api/webhooks/1214719832855941190/MPT9JKHYpEbjsgoCndOgzwZ--QKI8WA8zoMhhEcUSVZlb0Vvs_EGgKqBevqIZJglfR41"
-WEBHOOK_LOGSMTPDIE = "https://discord.com/api/webhooks/1214720028436602900/95fGGoL8ondJhlvkYviLWcfpcjmct8XV0XsKRGwNcMzldf_pTjJ3El4BEgCaGTgVmKUl"
-WEBHOOK_LOGSMTPINICIOU = "https://discord.com/api/webhooks/1214719588512702554/2hPLuTyfeN2GMQ-s2zFgcSJf4a0tJXX8xZ5VU5Jjt34ybzEfiQVFPhODAuybr7i7Rhmq"
 APIKEY_IP = "14BA97C3E17085BC09E136C65320E9EE"
 def obter_geoip(api_key,ip_address):
     url = f"https://api.ip2location.io/?key={api_key}&ip={ip_address}&format=json"
